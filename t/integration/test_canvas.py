@@ -15,10 +15,16 @@ from .tasks import (ExpectedException, add, add_chord_to_chord, add_replaced,
                     add_to_all, add_to_all_to_chord, build_chain_inside_task,
                     chord_error, collect_ids, delayed_sum,
                     delayed_sum_with_soft_guard, fail, identity, ids,
+<<<<<<< HEAD
                     print_unicode, raise_error, redis_echo,
                     replace_with_chain, replace_with_chain_which_raises,
                     replace_with_empty_chain, retry_once, return_exception,
                     return_priority, second_order_replace1, tsum)
+=======
+                    print_unicode, raise_error, redis_echo, retry_once,
+                    return_exception, return_priority, second_order_replace1,
+                    tsum, replace_with_chain, replace_with_chain_which_raises)
+>>>>>>> backport-6189
 
 RETRYABLE_EXCEPTIONS = (OSError, ConnectionError, TimeoutError)
 
@@ -585,6 +591,7 @@ class test_chain:
         assert redis_connection.blpop('redis-echo', min(1, TIMEOUT)) is None
         redis_connection.delete('redis-echo')
 
+<<<<<<< HEAD
     def test_replace_chain_with_empty_chain(self, manager):
         r = chain(identity.s(1), replace_with_empty_chain.s()).delay()
 
@@ -592,6 +599,8 @@ class test_chain:
                            match="Cannot replace with an empty chain"):
             r.get(timeout=TIMEOUT)
 
+=======
+>>>>>>> backport-6189
 
 class test_result_set:
 

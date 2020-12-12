@@ -24,10 +24,17 @@ def add(x, y, z=None):
         return x + y
 
 
+<<<<<<< HEAD
 @shared_task(typing=False)
 def add_not_typed(x, y):
     """Add two numbers, but don't check arguments"""
     return x + y
+=======
+@shared_task
+def raise_error(*args):
+    """Deliberately raise an error."""
+    raise ValueError("deliberate error")
+>>>>>>> backport-6189
 
 
 @shared_task(ignore_result=True)
@@ -110,11 +117,14 @@ def replace_with_chain_which_raises(self, *args, link_msg=None):
 
 
 @shared_task(bind=True)
+<<<<<<< HEAD
 def replace_with_empty_chain(self, *_):
     return self.replace(chain())
 
 
 @shared_task(bind=True)
+=======
+>>>>>>> backport-6189
 def add_to_all(self, nums, val):
     """Add the given value to all supplied numbers."""
     subtasks = [add.s(num, val) for num in nums]

@@ -750,6 +750,7 @@ class test_RedisBackend_chords_simple(basetest_RedisBackend):
             assert self.b.client.zadd.call_count
             self.b.client.zadd.reset_mock()
         assert self.b.client.zrangebyscore.call_count
+<<<<<<< HEAD
         jkey = self.b.get_key_for_group('group_id', '.j')
         tkey = self.b.get_key_for_group('group_id', '.t')
         self.b.client.delete.assert_has_calls([call(jkey), call(tkey)])
@@ -767,6 +768,8 @@ class test_RedisBackend_chords_simple(basetest_RedisBackend):
             assert self.b.client.zadd.call_count
             self.b.client.zadd.reset_mock()
         assert self.b.client.zrangebyscore.call_count
+=======
+>>>>>>> backport-6189
         jkey = self.b.get_key_for_group('group_id', '.j')
         tkey = self.b.get_key_for_group('group_id', '.t')
         self.b.client.delete.assert_has_calls([call(jkey), call(tkey)])
